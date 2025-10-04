@@ -1,0 +1,36 @@
+# This progam will be able to create mutiple hearts using the turtle 
+import turtle
+
+star = turtle.Turtle
+
+# Function to draw a heart at a given position
+def draw_heart(x, y, size, color):
+    star.penup()
+    star.goto(x, y)
+    star.pendown()
+    star.color(color)
+    star.begin_fill()
+    star.left(140)
+    star.forward(size)
+    star.circle(-size/2, 200)
+    star.left(120)
+    star.circle(-size/2, 200)
+    star.forward(size)
+    star.end_fill()
+    star.setheading(0)  # Reset orientation
+
+# Setup screen
+screen = turtle.Screen()
+screen.bgcolor("white")
+turtle.speed(0)
+
+# Draw multiple hearts
+positions = [(-200, 0), (-100, 100), (0, 0), (100, -100), (200, 100)]
+colors = ["red", "pink", "purple", "orange", "blue"]
+
+for i in range(len(positions)):
+    draw_heart(positions[i][0], positions[i][1], 100, colors[i])
+
+# Hide turtle and keep window open
+turtle.hideturtle()
+screen.mainloop()
